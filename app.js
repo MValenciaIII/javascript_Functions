@@ -46,6 +46,8 @@ function greetingByName(name) {
 }
 greetingByName("Dayna");
 
+greetingByName("Bryan");
+
 
 function greetingByExcitment(name) {
     //THIS let variable is only being seen inside this function!
@@ -56,6 +58,7 @@ function greetingByExcitment(name) {
     return upperCaseName
 }
    
+
 //IF you ever need a function to send back new data, You'll need a return
 let screamingName = greetingByExcitment("zach");
 
@@ -71,4 +74,124 @@ function sandwichMaker(typeOfBread, typeOfMeat = "N/A", typeOfSauce, typeOfVeggi
 }
 
 let zachSandwich = sandwichMaker("white", "ham", "mayo", "lettuce");
-let margaritoSandwich = sandwichMaker("white",, "buffalo", "lettuce")
+let margaritoSandwich = sandwichMaker("white",undefined, "buffalo", "lettuce")
+
+
+
+
+//! Grade Calculator
+//? Create a program that calculates the average grade from an array of grades and determines the corresponding letter grade.
+
+//TODO Define an Array: Define an array containing a list of 5 grades.
+let grades = [85,34,56,87,90];
+let gradeTwo = [82,56,31,78,67];
+let currentAverage = calcAverage(grades);
+
+//TODO Create a Function: Create a function to calculate the average of the grades.
+//? calculates the average grade from an array of grades
+function calcAverage(gradesArr) {
+    let average = 0;
+    for (let i = 0; i < gradesArr.length; i++) {
+        average += gradesArr[i]
+        
+    }
+    average = average / gradesArr.length;
+    return average
+}
+
+console.log(currentAverage)
+
+//TODO Create Another Function: Create another function to determine the letter grade based on the average.
+
+function letterGrade(gradeNum) {
+    if (gradeNum > 100) {
+        console.log(`${gradeNum} can't exist and recieve no letter!`)
+    } else if (gradeNum >= 90) {
+        console.log(`${gradeNum} has a A average!`)
+    } else if (gradeNum >= 80) {
+        console.log(`${gradeNum} has a B average!`)
+    } else if (gradeNum >= 70) {
+        console.log(`${gradeNum} has a C average!`)
+    } else if ( gradeNum >= 60 ) {
+        console.log(`${gradeNum} has a D average!`)
+    } else {
+        console.log(`${gradeNum} has a F average!`)
+
+    }
+}
+
+letterGrade(currentAverage)
+letterGrade();
+//TODO Use if-else Statements: Use if-else statements inside the function to determine the letter grade.
+//* Output Results: Use console.log to display the average grade and the corresponding letter grade. 
+
+
+
+
+//! Simple To-Do List
+//? Create a program that allows the user to add and display tasks in a to-do list.
+
+//TODO Define an Array: Define an array to store the tasks.
+//TODO Create Functions: Create functions to add a task and display the to-do list.
+
+function addATask(additionalTask) {
+    //how do i add an item to the array?
+    taskToDo.push(additionalTask);
+    displayToDoList();
+    
+}
+
+function displayToDoList() {
+    console.log(taskToDo);
+    
+}
+debugger
+let taskToDo = [];
+                    //!taskcompleted = "make food!"
+function removeAnItem(taskCompleted) {
+    //I need to remove a specific item.
+    //If else statements? 
+    // if (taskCompleted == "Make bed") {
+    //     console.log("Its here!")
+    // }
+    
+    let uppercaseTaskCompleted = taskCompleted.toUpperCase();
+    //console.log(uppercaseTaskCompleted)
+
+
+
+
+
+
+
+
+    console.log(taskCompleted); //String from function arguement 
+    console.log(taskToDo) //array from global variable ;
+                        //taskToDo = ARRAY OF DATA []
+    // if (taskCompleted === taskToDo[0]) {
+    //     taskToDo.splice(0,1);
+    // } else if (taskCompleted === taskToDo[1]) {
+    //     taskToDo.splice(1,1);
+    // } else if( taskCompleted === taskToDo[2]) {
+    //     taskToDo.splice(2,1)
+    // }
+    for (let i = 0; i < taskToDo.length; i++) {
+        if (taskCompleted === taskToDo[i]) {
+            taskToDo.splice(i,1);
+            displayToDoList();
+        }
+    }
+}
+
+
+addATask("Make bed") //[0]
+addATask("Code some") //[1]
+addATask("Make food!") //[2]
+removeAnItem("make food!")
+
+
+//TODO Use if-else Statements and Loops: Use if-else statements and loops within the functions to handle the tasks.
+//* Output Results: Use console.log to display the to-do list after each operation.
+
+//! BONUS: Be able to remove a task o.o 
+

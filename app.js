@@ -145,7 +145,7 @@ function displayToDoList() {
     console.log(taskToDo);
     
 }
-debugger
+
 let taskToDo = [];
                     //!taskcompleted = "make food!"
 function removeAnItem(taskCompleted) {
@@ -195,3 +195,95 @@ removeAnItem("make food!")
 
 //! BONUS: Be able to remove a task o.o 
 
+
+
+
+//! Temperature Converter
+//? Create a program that converts temperatures between Celsius, Fahrenheit, and Kelvin.
+
+//TODO Define Variables: Allow the user to input a temperature value and the unit they want to convert from.
+let tempNum = 25;
+let tempUnitLetter = "k";
+
+let newTempNum = 0;
+
+//TODO Create Functions: Create functions to convert between Celsius, Fahrenheit, and Kelvin.
+
+//?Making this function purely for changing Celsius number to Kelvin Number!
+function celsiusToKelvin(value) {
+
+    //*I KNOW I'M to have to store this kelvin number somewhere.
+    //*Planning to return to a store variable.
+    return value + 273.15;
+}
+
+function celsiusToFahrenheit(value) {
+    return (value * 9/5) + 32 
+}
+
+function KelvinToCelsius(value) {
+    return value - 273.15
+}
+
+function fahrenheitToCelsius(value) {
+    return (value - 32) * 5/9
+}
+
+
+// let storedKelvinNum = celsiusToKelvin(tempNum); //!WORKS
+// console.log(storedKelvinNum) //! 298.15 degrees
+// let storedFahrenheitNum = celsiusToFahrenheit(tempNum); //!WORKS
+// console.log(storedFahrenheitNum); //! 77 degrees
+
+//? I have the conversions when dealing with celsius numbers
+//TODO I NEED a way to tell apart and give me the other degrees
+
+function tempConverter(currentTempValue, currentTempLetter) {
+    console.log(currentTempValue + " is the tempNum");
+    console.log(currentTempLetter + " is the tempUnitLetter");
+    //MADE THIS VARIABLE just in case a user inputs a lowercase letter.
+    let upperCaseLetter = currentTempLetter.toUpperCase();
+    console.log(upperCaseLetter)
+    let celsius = 0;
+    let fahrenheit = 0;
+    let kelvin = 0;
+
+    if (upperCaseLetter === "C") {
+        fahrenheit = celsiusToFahrenheit(currentTempValue);
+        kelvin = celsiusToKelvin(currentTempValue);
+        celsius = currentTempValue;
+        console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`);
+    } else if (upperCaseLetter === "F") {
+        fahrenheit = currentTempValue;
+        celsius = fahrenheitToCelsius(currentTempValue);
+        kelvin = celsiusToKelvin(celsius);
+        console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`);
+    } else if (upperCaseLetter === "K") {
+        celsius = KelvinToCelsius(currentTempValue);
+        fahrenheit = celsiusToFahrenheit(celsius);
+        kelvin = currentTempValue;
+        console.log(`Fahrenheit: ${fahrenheit} Kelvin: ${kelvin} Celsius: ${celsius}`);
+    }
+}
+
+
+tempConverter(tempNum, tempUnitLetter)
+
+//? (Hint: There will be two arguements temperature value and unit letter (Celsius, Farenheit, Kelvin))
+//? ex. If I provide 25 and "C" I want the Kelvin and Farenheit temperature
+
+//* KelvinToCelsius conversion:
+//* kelvinNum - 273.15
+
+//* celsiusToKelvin:
+//* celsiusNum + 273.15
+
+//* fahrenheitToCelsius:
+//* (fahrenheit - 32) * 5/9
+
+//* celsiusToFahrenheit:
+//* (celsius * 9/5) + 32
+
+
+//TODO  Use if-else Statements: Use if-else statements to determine which conversion to perform based on the user's input.
+//* Output Results: Use console.log to display the converted temperature. 
